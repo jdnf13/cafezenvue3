@@ -1,42 +1,45 @@
 <script lang="ts">
-export default {
+//import axios from 'axios';
+import { defineComponent } from 'vue';
+export default defineComponent ({
     name: 'CarouselPromo',
+   
     props: {
-        /*description: {
-            type: String,
-            default: ''
-        },
-        product:  {
-            type: String,
-            default:''
-        },
-        price: {
-            type:Number,
-            default:0
-        },
-        _id:{
-            type:Number,
-            default:0
-        }*/
-    }
-}
+        dataCards: null
+    },
+   
+});
 </script>
 <template>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
         <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="2500">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <div class="d-block w-100" style="width: 18rem;margin-left: 2rem;margin-bottom: 1rem;">
+                    <img src="@/static/img1.png" class="card-img-top-prom" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Promociones del día</h5>
+                        <p class="card-text">Encuentras las mejores ofertas del día</p>
+                        <p class="card-text"> y lleva tu cafe 100% Colombiano</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item " data-bs-interval="2500" v-for="result of dataCards" v-bind:key="result._id">
+                <div class="d-block w-100" style="width: 18rem;margin-left: 2rem;margin-bottom: 1rem;">
+                    <img src="@/static/img1.png" class="card-img-top-prom" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{result.producto}}</h5>
+                        <p class="card-text">{{result.detalle}}</p>
+                        <p class="card-text">${{result.valor}}</p>
+                    </div>
+                </div>
+            </div>
+            <!--div class="carousel-item" data-bs-interval="2500">
                 <div class="d-block w-100" style="width: 18rem;margin-left: 2rem;margin-bottom: 1rem;">
                     <img src="@/static/img1.png" class="card-img-top-prom" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">product</h5>
                         <p class="card-text">description</p>
                         <p class="card-text">$price</p>
-                        <button type="button" class="btn btn-light">Ver mas...</button>
                     </div>
                 </div>
             </div>
@@ -47,21 +50,9 @@ export default {
                         <h5 class="card-title">product</h5>
                         <p class="card-text">description</p>
                         <p class="card-text">$price</p>
-                        <button type="button" class="btn btn-light">Ver mas...</button>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item" data-bs-interval="2500">
-                <div class="d-block w-100" style="width: 18rem;margin-left: 2rem;margin-bottom: 1rem;">
-                    <img src="@/static/img1.png" class="card-img-top-prom" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">product</h5>
-                        <p class="card-text">description</p>
-                        <p class="card-text">$price</p>
-                        <button type="button" class="btn btn-light">Ver mas...</button>
-                    </div>
-                </div>
-            </div>
+            </div-->
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

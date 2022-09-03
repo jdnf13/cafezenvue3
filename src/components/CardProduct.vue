@@ -1,10 +1,20 @@
 <script lang="ts">
 export default {
     name: 'CardProduct',
+    data: function(){
+        //results: Array<string>
+        return {
+        idRender:Math.random()
+        }
+    },
     props: {
         description: {
             type: String,
             default: ''
+        },
+        promocion: {
+            type: Boolean,
+            default: false
         },
         product:  {
             type: String,
@@ -31,17 +41,30 @@ export default {
 </div>-->
 
 <div class="card" style="width: 18rem;margin-left: 2rem;margin-bottom: 1rem;">
-  <img src="@/static/img1.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{product}}</h5>
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+        <img src="@/static/img1.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+        <img src="@/static/img1.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+        <img src="@/static/img1.png" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    </div>   
+  <div class="card-body" style="text-align: start;">
+    <h1 class="card-title">{{product}}</h1>
     <p class="card-text">{{description}}</p>
-    <p class="card-text">${{price}}</p>
+    <h2 class="card-text">${{price}}</h2>
     <hr/>
-    <button type="button" class="btn btn-light">Ver mas...</button>
   </div>
+    <button type="button" class="btn btn-light">Ver mas...</button>
 </div>
 
 </template>
 
 <style>
+
 </style>
